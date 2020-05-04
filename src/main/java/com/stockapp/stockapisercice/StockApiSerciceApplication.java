@@ -16,8 +16,7 @@ import java.util.Scanner;
 public class StockApiSerciceApplication {
     @Autowired
     TradingApp app;
-    @Autowired
-    RemoteURLReader remoteURLReader;
+
     @Autowired
     Trader trader;
     @Autowired

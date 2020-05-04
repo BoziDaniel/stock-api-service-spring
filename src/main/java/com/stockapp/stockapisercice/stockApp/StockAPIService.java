@@ -15,7 +15,6 @@ public class StockAPIService {
 
 	private static final String apiPath = "https://financialmodelingprep.com/api/v3/stock/real-time-price/%s";
 	RemoteURLReader remoteURLReader;
-@Autowired
 	public StockAPIService(RemoteURLReader remoteURLReader) {
 		this.remoteURLReader = remoteURLReader;
 	}
@@ -25,7 +24,7 @@ public class StockAPIService {
      **/
 	public double getPrice(String symbol) throws IOException, JSONException {
         String url = String.format(apiPath, symbol);
-        String result = RemoteURLReader.readFromUrl(url);
+        String result = remoteURLReader.readFromUrl(url);
         JSONObject json = new JSONObject(result);
         String price = json.get("price").toString();
         return Double.parseDouble(price);

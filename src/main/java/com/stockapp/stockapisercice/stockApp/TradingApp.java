@@ -15,26 +15,12 @@ import java.util.Scanner;
 @RestController
 @Component
 public class TradingApp {
-    public static void main(String[] args) {
-        RemoteURLReader remoteURLReader = new RemoteURLReader();
-        Logger logger = new Logger();
-        StockAPIService stockAPIService = new StockAPIService(remoteURLReader);
-        Trader trader = new Trader(stockAPIService, logger);
-        TradingApp app = new TradingApp(trader, remoteURLReader, logger, stockAPIService);
-        app.showResult("aapl", 400);
-    }
-
     private Trader trader;
-    private RemoteURLReader remoteURLReader;
-    private Logger logger;
-    private StockAPIService stockAPIService;
 
-    @Autowired
-    public TradingApp(Trader trader, RemoteURLReader remoteURLReader, Logger logger, StockAPIService stockAPIService) {
+
+    public TradingApp(Trader trader) {
         this.trader = trader;
-        this.remoteURLReader = remoteURLReader;
-        this.logger = logger;
-        this.stockAPIService = stockAPIService;
+
     }
 
     @GetMapping("/{symbol}/{price}")

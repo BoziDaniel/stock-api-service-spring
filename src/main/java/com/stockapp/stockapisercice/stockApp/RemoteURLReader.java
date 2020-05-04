@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Component
 public class RemoteURLReader {
 
-    public static String readFromUrl(String endpoint) throws IOException {
+    public String readFromUrl(String endpoint) throws IOException {
         URL url = new URL(endpoint);
         URLConnection conn = url.openConnection();
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
